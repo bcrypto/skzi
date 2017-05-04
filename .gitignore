@@ -1,0 +1,16 @@
+# TeX files
+*.aux
+*.idx
+*.log
+*.out
+*.thm
+*.toc
+*.dvi
+
+# Tmp files
+~*.*
+*.bak
+
+# Concrete files
+34.101.27/skzi.pdf
+clear.bat

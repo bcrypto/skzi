@@ -1,0 +1,28 @@
+Skzi: security requirements for cryptographic modules
+=====================================================
+
+What is Skzi?
+-------------
+
+Bcrypto/Skzi is a repo which supports development of a new version of STB 
+34.101.27-2011 (security requirements for software cryptgraphic modules).
+
+We are planning to upgrade STB in the following directions:
+
+* Cover both hardware and software modules
+
+* Introduce new security levels
+
+* Introduce packets (optional groups of consolidated requirements)
+
+* Revise current security reqirements
+
+Work areas
+----------
+
+* [Problems and Solutions](P&S): preliminary discussions
+
+* [34.101.27](34.101.27): the current version of STB 34.101.27
+
+
+
