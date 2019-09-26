@@ -11,6 +11,7 @@
 ~*.*
 *.bak
 
-# Concrete files
-34.101.27/skzi.pdf
-clear.bat
+# Specific items
+_support
+spec/skzi.pdf
+clear.cmd

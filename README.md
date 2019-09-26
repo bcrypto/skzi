@@ -15,14 +15,14 @@ We are planning to upgrade STB in the following directions:
 
 * Introduce packets (optional groups of consolidated requirements)
 
-* Revise current security reqirements
+* Revise the current security reqirements
 
 Work areas
 ----------
 
-* [Problems and Solutions](P&S): preliminary discussions
+* [Issues](https://github.com/bcrypto/skzi/issues): preliminary discussions
 
-* [34.101.27](34.101.27): the current version of STB 34.101.27
+* [Spec](spec): the current version of STB 34.101.27
 
 
 
