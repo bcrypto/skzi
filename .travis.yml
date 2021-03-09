@@ -1,29 +1,20 @@
-# Travis-CI build for skzi
-# see travis-ci.org for details
-
 language: generic
-
 os: linux
 dist: trusty
 sudo: required
-
 before_install:
-  - sudo apt-get install -y --no-install-recommends
-      texlive-base texlive-latex-base texlive-latex-extra 
-      texlive-latex-recommended texlive-generic-extra
-      texlive-fonts-recommended texlive-generic-recommended
-      texlive-fonts-extra texlive-lang-cyrillic 
-
+- sudo apt-get install -y --no-install-recommends texlive-base texlive-latex-base
+  texlive-latex-extra texlive-latex-recommended texlive-generic-extra texlive-fonts-recommended
+  texlive-generic-recommended texlive-fonts-extra texlive-lang-cyrillic
 script:
-  - cd spec
-  - pdflatex -interaction=nonstopmode -halt-on-error skzi.tex
-  - pdflatex -interaction=nonstopmode -halt-on-error skzi.tex
-  - cd ..
-
+- cd spec
+- pdflatex -interaction=nonstopmode -halt-on-error skzi.tex
+- pdflatex -interaction=nonstopmode -halt-on-error skzi.tex
+- cd ..
 deploy:
   provider: releases
-  api_key: 
-    secure: iBZmgM9ZdLjgr9Mo0KHqBs5aNklKwpUUA48Ep7p8c26Mdq1fayNUukMgoklvO83vBHfr9A7fwgXXPFiHijLlEKTK1zf7H/ual03XvJho7YQW1gGHhFAoK4zUyAkh5YIh5e1RRBvAVycvlSrvV/yguajEg+ap0k7wIWKtaLI+MSscbGCyzQJgUcHHkiz15HxB/hHW89NNV5kYPiHJb0XDPZRXd6lVZ9qS3ubTews99igDGaWMCvXtfZkLg2gS0TOrKbOfvNJ4XmQC2jo3WRGRGv3gzH3DaB3UKiqPv/ixOgqcKjB9wEo2T7BtLwAMaZzUh/o8wVa2yTqNs2KwgRXkTjiv3Sp46YE5zagGGxkbaIETjDlpF+4+bYCGX0xdbs9wHOWrBCIMUMfDXy9xL3qWFM06p6whKkPbzMyvg5K70SE+AcFcR6RmdL+WwGUoQXUvqysFqXueRLoB316jh7issbwWW5D2VUYO3zFYDL9iAzZsmZjTmz0nErjS92FWevDjGzmwFw87PlvHuc5w3AjyN0N1SSKKZ1kUNf4XV8AdAGlRYmhgY7HGHmqBaaFryDuvtHOwLi4bDqsCs4hkkp+ip8rQjCyFT8DSmJU17Ro58zlK66jW4FJ7pgO/Vz3i5FibS0k0d4O9+18bsTW6gO8DZxQZCxsQ+Qtml3sRxDdONe4=
+  api_key:
+    secure: G55qP95mdsFkZpyWanwihxk9/8365IMWw4Cl/RmuJVyQnsFPwIy9iUMapTAOWJYB+2lQdM7I57+dWSH0RnutzD80IG/hJ3uQNWiXbZtuel9osPqV/FtU45aEdYeEK0Qom4NpGSlnUJ4Cq3i3N88wD1vRpMz+RiP0Rwqi9c9+UEE9nwwn/2aRFNVxP7PkdrssO6Tj/1AMpLT4Yh5vuckvB8fjBQn+r3gDQ00C2qtuSz+/99eKa64QwDdJhP92rd+PRu9ca16AC+yDkbBJR9m6Rk+ZtuS+Z+ZPjXD9jShqhA4R/V07raTWwqWcITdX9iNX/tCLaisq9qrhKL5/ubPCV+m8VPRxALMwJognx+Gr9qyDhCO1+CJaxv89HirpuS1qeNZKfvrtzGIF4jzeNWFzV2znM81hi09DejXrxNcLx0ZoRbK83kTtWRMRZsMxotkySVSVlhaGlUr9nrlLe8JEmmq1jzTDOf7RrVI3ygk+NWFlMXTBVvOqG/OMtqXyTuzfwbfex7bqtqPMq0yaZZ8AhD9Ou0eHbKHvzh45wsMKNVWdbor8J79gDyVdjho62bIVA8vHHd0ZzzQ71vtJK3Kro+YQM75yYqUmsw05uGWVxBM+iuYXokVw9/iwhdNgwzR/DUIEvjOIrt61646E05cX+lrGqcAIiPzFzxaD0WF7Z2s=
   file: spec/skzi.pdf
   skip_cleanup: true
   overwrite: true
