@@ -1,6 +1,8 @@
 Skzi: security requirements for cryptographic modules
 =====================================================
 
+[![Build Status](https://travis-ci.org/bcrypto/skzi.svg?branch=master)](https://travis-ci.org/bcrypto/skzi)
+
 What is Skzi?
 -------------
 
