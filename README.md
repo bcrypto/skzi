@@ -20,9 +20,6 @@ We are planning to upgrade STB in the following directions:
 Work areas
 ----------
 
-* [Issues](https://github.com/bcrypto/skzi/issues): preliminary discussions
+* [Issues](https://github.com/bcrypto/skzi/issues): preliminary discussion
 
 * [Spec](spec): the current version of STB 34.101.27
-
-
-

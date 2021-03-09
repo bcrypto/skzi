@@ -7,11 +7,15 @@
 *.toc
 *.dvi
 
+# Graphic files
+*.eps
+*.cdr
+
 # Tmp files
 ~*.*
 *.bak
 
 # Specific items
-_support
-spec/skzi.pdf
+_docs
+spec/*.pdf
 clear.cmd
