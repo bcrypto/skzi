@@ -1,0 +1,292 @@
+\begin{appendix}{А}{рекомендуемое}
+{Содержание функциональной спецификации}\label{SPEC}
+
+\mbox{}
+
+\begin{enumerate}
+\item
+{Описание~СКЗИ.}
+
+\begin{enumerate}
+\item
+Назначение.
+\item
+Уровень ($1$, $2$, $3$ или $4$).
+\item
+Основные функциональные возмножности.
+\item
+Криптографическая граница.
+\item
+Список критических системных компонентов~\useref{R.ST.CSCList}.
+\end{enumerate}
+
+\item
+{Криптографическая поддержка.}
+
+\begin{enumerate}
+\item
+Список криптографических алгоритмов~\useref{R.CS.Algs}.
+
+\item
+Методы генерации долговременных параметров и ключей~\useref{R.CS.Gen}.
+
+\item
+Средства контроля времени выполнения криптографических 
+алгоритмов~\useref{R.CS.Timing} (начиная с уровня 2). 
+\end{enumerate}
+
+\item
+{Реализация сервисов.}
+\begin{enumerate}
+\item
+Список сервисов~\useref{R.SV.List}.
+
+\item
+Средства защиты от создания неявных копий
+критических объектов~\useref{R.SV.Leaks} 
+(начиная с уровня 2).
+\end{enumerate}
+
+\item
+{Управление доступом.}
+
+\begin{enumerate}
+\item
+Список ролей операторов~\useref{R.AC.Roles}.
+
+\item
+Список объектов~\useref{R.AC.Objects}.
+
+\item
+Описание политики управления доступом~\useref{R.AC.Policy}.
+
+\item
+Состояния СКЗИ и правила перехода между состояниями~\useref{R.AC.States}.
+\end{enumerate}
+
+\item
+{Защита объектов.}
+
+\begin{enumerate}
+\item
+Криптографические методы обеспечения конфиденциальности~\useref{R.DP.CryptoE}.
+
+\item
+Криптографические методы контроля целостности и 
+подлинности~\useref{R.DP.CryptoI}. 
+
+\item
+Аппаратные методы защиты~\useref{R.DP.Hard}.
+
+\item
+Методы разделения секрета~\useref{R.DP.Split}.
+
+\item
+Алгоритмические методы контроля целостности~\useref{R.DP.Algo}.
+
+\item
+Организационные меры обеспечения конфиденциальности~\useref{R.DP.Org}.
+
+\item
+Соответствие <<объекты~--- методы защиты>>~\useref{R.DP.Crit,R.DP.Public}.
+
+\item
+Методы очистки критических объектов~\useref{R.DP.Zero}.
+\end{enumerate}
+
+\item
+{Самотестирование.}
+
+\begin{enumerate}
+\item
+Проверка работоспособности критических системных компонентов~\useref{R.ST.CSCTests}.
+
+\item
+Перечень проверок самотестирования~\useref{R.ST.Tests}.
+
+\item
+Обработка ошибок тестирования~\useref{R.ST.TestLock}.
+\end{enumerate}
+
+\item
+Аудит (начиная с уровня 3).
+
+\begin{enumerate}
+\item
+Перечень регистируемых событий~\useref{R.AU.Events}.
+
+\item
+Структура записей аудита~\useref{R.AU.Records}.
+
+\item
+Обработка переполнения журнала аудита~\useref{R.AU.Over}.
+\end{enumerate}
+
+\item
+Физическая безопасность (начиная с уровня 3).
+
+\begin{enumerate}
+\item
+Механизмы физической защиты~\useref{R.PS.List}.
+
+\item
+Действия при срабатывании средств контроля 
+доступа~\useref{R.PS.Erasing} (уровень 4). 
+\end{enumerate}
+
+\item
+Защита от воздействий (уровень 3).
+
+\begin{enumerate}
+\item
+Допустимые границы температуры, напряжения и др.~\useref{R.EF.Ranges}.
+
+\item
+Механизмы обнаружения выхода за допустимые границы~\useref{R.EF.Detect}
+(уровень 4).
+\end{enumerate}
+
+\item
+Защита от утечек (уровень 4).
+
+\begin{enumerate}
+\item
+Перечень побочных каналов~\useref{R.NI.Channels}.
+
+\item
+Механизмы защиты от утечек~\useref{R.NI.Protect}.
+
+\item
+Экспериментальные оценки утечек~\useref{R.NI.Estimate}.
+\end{enumerate}
+
+\item
+Генерация случайных чисел (при включении пакета СЧ).
+
+\begin{enumerate}
+\item
+Описание генераторов случайных чисел~\useref{R.RN.Spec}.
+
+\item
+Оценка энтропии источников случайности~\useref{R.RN.Entropy}.
+
+\item
+Проверка работоспособности~\useref{R.RN.TotTest}.
+
+\item
+Статистическое тестирование~\useref{R.RN.Tests}.
+\end{enumerate}
+
+\item
+Обновление программ (при включении пакета ОП).
+
+\begin{enumerate}
+\item
+Контроля целостности и подлинности обновляемых программ~\useref{R.SU.Import}.
+
+\item
+Проверка хранения корректных программных модулей~\useref{R.SU.PoS} (уровень 4).
+\end{enumerate}
+
+\item
+Вывод из эксплуатации (при включении пакета ВЭ).
+
+\begin{enumerate}
+\item
+Перечень объектов, подлежащих очистке~\useref{R.DE.List}.
+\end{enumerate}
+
+\item
+Доверенный канал (при включении пакета ДК).
+
+\begin{enumerate}
+\item
+Встречная аутентификация~\useref{R.TC.Auth2}.
+\item
+Защита канала~\useref{R.TC.Crypto}.
+\end{enumerate}
+
+\item
+{Идентификация и аутентификация.}
+
+\begin{enumerate}
+\item
+Методы идентификации операторов~\useref{R.IA.Id}.
+
+\item
+Методы аутентификации операторов~\useref{R.IA.AuthData,R.IA.Auth}.
+
+\item
+Проверка качества секретов аутентификации~\useref{R.IA.PwdSet}.
+\end{enumerate}
+
+\item
+{Настройка среды.}
+
+\begin{enumerate}
+\item
+Настройка среды для безопасной установки~\useref{R.ES.Install}.
+
+\item
+Настройка среды для защиты системных объектов~\useref{R.ES.Objects}.
+
+\item
+Настройка среды для защиты сеансов~\useref{R.ES.Session}.
+
+\item
+Отслеживание уязвимостей КСК~\useref{R.ES.CVE} (начиная с уровня 2).
+
+\end{enumerate}
+
+\item
+Гарантийные меры (могут быть определены в отдельных документах).
+\begin{enumerate}
+\item
+Описание программ~\useref{R.DI.ProgSpec}.
+
+\item
+Внешние интерфейсы программ~\useref{R.DI.HLD}.
+
+\item
+Внутренние компоненты и интерфейсы~\useref{R.DI.LLD}
+(начиная с уровня 2).
+
+\item
+Cредства разработки~\useref{R.DI.Tools}.
+
+\item
+Языки программирования~\useref{R.DI.Language}.
+
+\item
+Система управления конфигурацией~\useref{R.LC.CMSystem}.
+
+\item
+Система поставки~СКЗИ потребителю~\useref{R.LC.Delivery}.
+
+\item
+Методы контроля инсталляционных программ~\useref{R.LC.Authenticode}
+(начиная с уровня 2).
+
+\item
+Список руководств~\useref{R.GD.Admin,R.GD.Roles}.
+
+\item
+Типичные ошибки операторов~\useref{R.GD.Misuse}
+(начиная с уровня 2).
+
+\item
+Программа испытаний~\useref{R.TE.Prg}.
+
+\item
+Результаты анализа покрытия тестами~\useref{R.TE.Coverage}.
+
+\item
+Результаты анализа глубины тестирования~\useref{R.TE.Deep}
+(начиная с уровня 2).
+\end{enumerate}
+\end{enumerate}
+
+Разделы могут объединяться.
+
+\end{appendix}
+

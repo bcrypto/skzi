@@ -1,0 +1,179 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{_defs}
+
+%%%%%%%%%%% Format %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\doubt}[1]{{\textcolor{red}{#1}}}
+\newcommand{\addendum}[1]{\textcolor{blue}{#1}}
+\newcommand{\optional}[1]{$\mathbf{\bigl[}$#1$\mathbf{\bigr]}$}
+\newcommand{\mathoptional}[1]{\ensuremath{\mathbf{\bigl[}#1\mathbf{\bigr]}}}
+\newcommand{\implicit}[1]{$\mathbf{\bigl\{}$#1$\mathbf{\bigr\}}$}
+\newcommand{\mathimplicit}[1]{\ensuremath{\mathbf{\bigl\{}#1\mathbf{\bigr\}}}}
+
+\newcommand\algname[1]{\texttt{#1}\xspace}
+
+\newcounter{defctr}
+\setcounter{defctr}{0}
+\renewcommand{\thedefctr}
+{\addtocounter{defctr}{1}\thechapter.\arabic{defctr}}
+
+\newcounter{reqctr}
+\renewcommand{\thereqctr}{\arabic{reqctr}}
+
+\@addtoreset{reqctr}{section}
+\newcommand{\req}[2]{
+	\addtocounter{reqctr}{1}
+	\def\@currentlabel{#1.\thereqctr}
+	{\bf Требование~#1.\thereqctr~(#2)}.\;\xspace
+}
+
+%\makeatletter
+%\def\useref#1{\expandafter\useref@i#1,,,\@nil}
+%\def\useref@i#1,#2,#3,#4\@nil{\ref{#1}}}
+
+
+\def\useref#1{\expandafter\useref@i#1,,,,\@nil}
+\def\useref@i#1,#2,#3,#4,#5\@nil{% 
+  \ifx$#2$[\ref{#1}]\else
+    \ifx$#3$[\ref{#1}, \ref{#2}]\else
+      \ifx$#4$[\ref{#1}, \ref{#2}, \ref{#3}]\else
+         [\ref{#1}, \ref{#2}, \ref{#3}, \ref{#4}]
+      \fi
+    \fi
+  \fi 
+}  
+
+\def\forref#1{\expandafter\forref@i#1,,,,\@nil}
+\def\forref@i#1,#2,#3,#4,#5\@nil{% 
+  \ifx$#2$\{\ref{#1}\}\else
+    \ifx$#3$\{\ref{#1}, \ref{#2}\}\else
+      \ifx$#4$\{\ref{#1}, \ref{#2}, \ref{#3}\}\else
+         \{\ref{#1}, \ref{#2}, \ref{#3}, \ref{#4}\}
+      \fi
+    \fi
+  \fi 
+}  
+
+
+\newcommand{\abbr}[1]{\texttt{#1}}
+
+\newcommand{\anchor}[1]
+{\abbr{#1}\def\@currentlabel{\abbr{#1}}\label{#1}}
+
+\newcommand{\up}[1]{$\phantom{\,}^{#1}$}
+\newcommand{\starup}{\up{\star}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Renew %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\le}{\leqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\geq}{\geqslant}
+\providecommand{\No}{\textnumero}
+
+%%%%%%%%%%% Environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{defcaption}[1]{%
+	\list{}{\labelwidth 5cm
+		\itemindent 0pt
+		\labelsep 0pt
+		\topsep 0pt
+		\parskip 0pt
+		\leftmargin 5cm}%
+		\item[\abbr{#1}\hfill\mbox{}]
+		\def\@currentlabel{\abbr{#1}}\label{#1}
+	}%
+	{\endlist}
+
+\newenvironment{definition}[2]{%
+	\list{}{\labelwidth 0pt
+		\itemindent 0pt
+		\labelsep 0pt
+		\topsep 0pt
+		\topskip 16pt
+		\partopsep 16pt
+		\leftmargin 0pt}%
+		\item[]\begin{defcaption}{#1}{\it #2}\end{defcaption}
+	}%
+	{\endlist}
+
+\newcounter{note}[subsubsection]
+\newcommand\thenotename{Примечание~\ifnum\c@note>\z@\@arabic\c@note~\fi---~}
+
+\newenvironment{note*}{
+  \list{}{\vskip3pt
+    \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
+    \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
+    \labelsep=0pt\small\item[\thenotename]}
+}{\vskip3pt\endlist}
+
+\newenvironment{note}{
+  \list{}{\vskip3pt
+    \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
+    \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
+    \refstepcounter{note}
+    \labelsep=0pt\small\item[\thenotename]}
+}{\vskip3pt\endlist}
+
+\newcounter{example}[subsubsection]
+\newcommand\theexamplename
+{Пример~\ifnum\c@example>\z@\@arabic\c@example~\fi---~}
+
+\newenvironment{example*}{
+  \list{}{\vskip3pt
+    \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
+    \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
+    \labelsep=0pt\small\bf\itshape\item[\theexamplename]}
+}{\vskip3pt\endlist}
+
+\newenvironment{example}{
+  \list{}{\vskip3pt
+    \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
+    \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
+    \refstepcounter{example}
+    \labelsep=0pt\small\bf\itshape\item[\theexamplename]}
+}{\vskip3pt\endlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\apprefix{}
+\newenvironment{appendix}[3]
+{
+  \clearpage
+  \chapter*{\mbox{}\hfillПриложение~#1\hfill\mbox{}}%
+  \vskip-10pt
+  {\centering
+    {\bf (#2)}\par
+    {\large\bf #3}\par
+  }
+  \def\@currentlabel{#1}
+  \def\apprefix{#1.}
+  \def\thechapter{#1}
+  \setcounter{table}{0}
+  \setcounter{section}{0}
+  \addcontentsline{toc}{chapter}{Приложение~#1~(#2)~#3}
+}
+{
+  \def\apprefix{}
+  \def\thechapter{\@arabic\c@chapter}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Local %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addto\captionsrussian{%
+  \renewcommand{\figurename}{Рисунок}
+  \renewcommand\tablename{Таблица}
+  \renewcommand\contentsname{Содержание}
+  \renewcommand{\bibname}{Библиография}
+}
+
+\addto\captionsrussian{% 
+  \renewcommand*{\glossaryname}{Термины и определения}%
+}
+
+\providecommand{\CryptoDisk}{<<{Криптодиск}>>\xspace}
+\hyphenation{СКЗИ}
+
+%%
+%%
+\endinput
