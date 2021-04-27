@@ -27,11 +27,6 @@
 	{\bf Требование~#1.\thereqctr~(#2)}.\;\xspace
 }
 
-%\makeatletter
-%\def\useref#1{\expandafter\useref@i#1,,,\@nil}
-%\def\useref@i#1,#2,#3,#4\@nil{\ref{#1}}}
-
-
 \def\useref#1{\expandafter\useref@i#1,,,,\@nil}
 \def\useref@i#1,#2,#3,#4,#5\@nil{% 
   \ifx$#2$[\ref{#1}]\else
@@ -53,7 +48,6 @@
     \fi
   \fi 
 }  
-
 
 \newcommand{\abbr}[1]{\texttt{#1}}
 
@@ -99,6 +93,8 @@
 
 \newcounter{note}[subsubsection]
 \newcommand\thenotename{Примечание~\ifnum\c@note>\z@\@arabic\c@note~\fi---~}
+\@addtoreset{reqctr}{subsubsection}
+
 
 \newenvironment{note*}{
   \list{}{\vskip3pt
