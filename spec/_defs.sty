@@ -67,34 +67,9 @@
 
 %%%%%%%%%%% Environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newenvironment{defcaption}[1]{%
-	\list{}{\labelwidth 5cm
-		\itemindent 0pt
-		\labelsep 0pt
-		\topsep 0pt
-		\parskip 0pt
-		\leftmargin 5cm}%
-		\item[\abbr{#1}\hfill\mbox{}]
-		\def\@currentlabel{\abbr{#1}}\label{#1}
-	}%
-	{\endlist}
-
-\newenvironment{definition}[2]{%
-	\list{}{\labelwidth 0pt
-		\itemindent 0pt
-		\labelsep 0pt
-		\topsep 0pt
-		\topskip 16pt
-		\partopsep 16pt
-		\leftmargin 0pt}%
-		\item[]\begin{defcaption}{#1}{\it #2}\end{defcaption}
-	}%
-	{\endlist}
-
 \newcounter{note}[subsubsection]
 \newcommand\thenotename{Примечание~\ifnum\c@note>\z@\@arabic\c@note~\fi---~}
 \@addtoreset{reqctr}{subsubsection}
-
 
 \newenvironment{note*}{
   \list{}{\vskip3pt
@@ -105,8 +80,8 @@
 
 \newenvironment{note}{
   \list{}{\vskip3pt
-    \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
-    \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
+   \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
+   \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
     \refstepcounter{note}
     \labelsep=0pt\small\item[\thenotename]}
 }{\vskip3pt\endlist}
