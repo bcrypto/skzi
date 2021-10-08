@@ -11,6 +11,23 @@
 Средство криптографической защиты информации, в состав которого входят 
 аппаратные компоненты. 
 
+% FIPS 140-3: 
+% hardware: physical equipment/components within the cryptographic boundary 
+%   used to process programs and data
+% firmware: executable code of a cryptographic module that is stored in hardware  
+%   within the cryptographic boundary and cannot be dynamically written or modified 
+%   during execution while operating in a non-modifiable or limited operational 
+%   environment
+% software: executable code of a cryptographic module that is stored on 
+%   erasable media which can be dynamically written and modified during execution 
+%   while operating in a modifiable operational environment
+%   EXAMPLE Erasable media can include but not limited to solid state memory, 
+%     hard drives, etc.
+% firmware module: module that is composed solely of firmware
+% hardware module: module composed primarily of hardware, which may also 
+%   contain firmware 
+% software module: module that is composed solely of software
+
 {\bf \thedefctr~аутентификация}:
 Проверка подлинности стороны или данных.
 
@@ -31,8 +48,6 @@
 
 {\bf \thedefctr~бесключевой криптографический алгоритм}:
 Криптографический алгоритм, в котором не используются ключи.
-
-% Information used to verify the claimed identity of a user
 
 {\bf \thedefctr~генератор случайных чисел}:
 Устройство или программа, которая вырабатывает последовательность 
@@ -310,15 +325,26 @@
 {\bf \thedefctr~системный объект}: 
 Объект средства криптографической защиты информации, 
 который находится в общем пользовании операторов 
+\doubt{или, наоборот, исключительно в распоряжении средства}
 и владельцем которого формально назначается системный оператор.
 
+% v33: Объект средства криптографической защиты информации, 
+% который находится в общем пользовании операторов 
+% и владельцем которого формально назначается системный оператор.
+
 \begin{note}
-К системным объектам относятся файлы программ, 
+К \doubt{открытым} системным объектам относятся файлы программ, 
 конфигурационные файлы, глобальные неизменяемые объекты.
+%
+\doubt{Примеры критических системных объектов:
+личный ключ средства криптографической защиты информации как автономного 
+криптографического устройства; секретный ключ контроля целостности и 
+подлинности обновляемых программ.}
 \end{note}
 
 {\bf \thedefctr~системный оператор}:
-Неявный (логический) оператор, который представляет системную среду.
+Неявный (логический) оператор, который представляет системную среду
+\doubt{или средство криптографической защиты информации в целом}.
 
 {\bf \thedefctr~системная среда}:
 Аппаратные и программные компоненты в пределах криптографической границы
