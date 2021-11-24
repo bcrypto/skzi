@@ -60,10 +60,11 @@
 %%%%%%%%%%% Environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcounter{note}[subsubsection]
-\newcommand\thenotename{Примечание~\ifnum\c@note>\z@\@arabic\c@note~\fi---~}
+%\newcommand\thenotename{Примечание~\ifnum\c@note>\z@\@arabic\c@note~\fi---~}
 \@addtoreset{reqctr}{subsubsection}
 
 \newenvironment{note*}{
+  \def\thenotename{Примечание~---~}
   \list{}{\vskip3pt
     \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
     \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
@@ -71,6 +72,7 @@
 }{\vskip3pt\endlist}
 
 \newenvironment{note}{
+  \def\thenotename{Примечание~\@arabic\c@note~---~}
   \list{}{\vskip3pt
    \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
    \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
@@ -78,11 +80,18 @@
     \labelsep=0pt\small\item[\thenotename]}
 }{\vskip3pt\endlist}
 
+\newenvironment{notes}{
+  \def\thenotename{Примечания}
+  \list{}{\vskip3pt
+    \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
+    \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
+    \labelsep=0pt\small\item[\thenotename]}\mbox{}\par
+}{\vskip3pt\endlist}
+
 \newcounter{example}[subsubsection]
-\newcommand\theexamplename
-{Пример~\ifnum\c@example>\z@\@arabic\c@example~\fi---~}
 
 \newenvironment{example*}{
+ \def\theexamplename{Пример~---~}
   \list{}{\vskip3pt
     \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
     \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
@@ -90,12 +99,23 @@
 }{\vskip3pt\endlist}
 
 \newenvironment{example}{
+  \def\theexamplename{Пример~\@arabic\c@example~---~}
   \list{}{\vskip3pt
     \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
     \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
     \refstepcounter{example}
     \labelsep=0pt\small\bf\itshape\item[\theexamplename]}
 }{\vskip3pt\endlist}
+
+\newenvironment{examples}{
+  \def\theexamplename{Примеры}
+  \list{}{\vskip3pt
+    \labelwidth=0pt\topsep=0pt\partopsep=0pt\parskip=0pt\parsep=0pt
+    \itemsep=0pt\itemindent=0pt\leftmargin=\parindent
+    \refstepcounter{example}
+    \labelsep=0pt\small\bf\itshape\item[\theexamplename]}\mbox{}\par
+}{\vskip3pt\endlist}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
