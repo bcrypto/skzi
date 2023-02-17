@@ -12,9 +12,11 @@ both software and hardware modules.
 Skzi defines 4 security levels: 2 for software modules and 2 for hardware.
 Security requirements are divided into 3 groups:
 
-A) functional requirements for the module;
-B) functional requirements for the system environment of the module;
-C) assurance requirements for the module.
+(A) functional requirements for the module;
+
+(B) functional requirements for the system environment of the module;
+
+(C) assurance requirements for the module.
 
 Requirements are structured into the following packages.
 
