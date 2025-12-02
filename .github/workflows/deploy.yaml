@@ -11,13 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build LaTeX
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: skzi.tex
           working_directory: spec/
-          args: -jobname=skzi -pdf -file-line-error -halt-on-error -interaction=nonstopmode
       - name: Upload pdf
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: skzi
           path: spec/skzi.pdf
@@ -26,7 +25,7 @@ jobs:
     needs: [build]
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v4.1.7
+        uses: actions/download-artifact@v4
         with:
           name: skzi
       - name: Create release
