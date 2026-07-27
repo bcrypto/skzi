@@ -2,7 +2,7 @@
 # \file h0test.py
 # \brief Implementation of the statistical test suite defined in MI10127.12.03
 # \created 2026.07.14
-# \version 2026.07.20
+# \version 2026.07.27
 # \license Public domain
 # \ref https://apmi.bsu.by/resources/met
 # \usage h0test.py {1Mb|10Mb} path/to/file[s]1 path/to/file[s]2 ...
@@ -90,7 +90,7 @@ def critEmptyBox(seq, L):
 
   lmbda = m / 2 ** L
   assert(lmbda < 5)
-  if lmbda < 1 / 32:
+  if lmbda <= 1 / 32:
     mu = m ** 2 / 2 / 2 ** L
     pv = 1.0 - poisson.cdf(S, mu)
   else:
